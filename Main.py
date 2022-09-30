@@ -41,7 +41,6 @@ if my_log_in.lower() == "n": #create an email and password to be able to log in
 else:# this is if you already have an email and password set up.
     email = input("Enter your password: ")
     password = input("Enter your password: ")
-
     login = a.sign_in_with_email_and_password(email ,  password)
     user_idToken = a.get_account_info(login["idToken"])
 
