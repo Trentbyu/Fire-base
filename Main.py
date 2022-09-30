@@ -48,7 +48,7 @@ else:# this is if you already have an email and password set up.
 
 logged_in = True
 
-while logged_in:
+while logged_in: #while the user is logged in 
 
 
     option = input(f"\nWhat Would you like to do type [1-5]\n1. Upload/Remove to Fire Data Base\n2. write to Real Time DataBase\n3. Upload To Storage \n4. View User idToken\n5. query database\n6. quit\nEnter Here: ")
@@ -69,7 +69,7 @@ while logged_in:
             value = input("what is the  value? : ")
             db.collection(collection_name).document(document).set({key : value})
         elif option_1 == "3": 
-            collection_name = input("what is the collection name? : ")
+            collection_name = input("what is the collection name? : ") # gets the collection name from user
             document = input("what is the document name? : ")
             db.collection(collection_name).document(document).delete()
         else:
@@ -110,9 +110,9 @@ while logged_in:
 
     elif option == "6": # in order to log out 
         logged_in = False
-        print("You are logged out")
+        print("You are logged out") # the program stops and the user is logged out
     
-    else: print(f"\n\n Type 1-6 \n\n")
+    else: print(f"\n\n Type 1-6 \n\n") # this runs the loop if the user selects the wrong number
    
 
 
