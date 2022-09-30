@@ -26,11 +26,11 @@
 
 {Make a list of websites that you found helpful in this project}
 * [morioh](http://url.link.goes.here](https://morioh.com/p/71358deec9e1))
-* [Web Site Name](http://url.link.goes.here)
+* [firebase.google.com](https://firebase.google.com/docs/firestore)
 
 # Future Work
 
 {Make a list of things that you need to fix, improve, and add in the future.}
-* Item 1
-* Item 2
+* Imporve Ui for uses to be able to edit, delete, add, and query data 
+* Allow the user to be able to store information 
 * Item 3
