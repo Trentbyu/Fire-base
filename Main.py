@@ -31,7 +31,7 @@ tb = firebase.database()
 
 my_log_in = input("Do you have a sign in? Y/N?")
 
-if my_log_in.lower() == "N": #create an email and password to be able to log in 
+if my_log_in.lower() == "n": #create an email and password to be able to log in 
     email = input("Enter your email: ")
     password = input("Enter your Password: ")
     user = auth.create_user(email = email,password =  password)
@@ -39,8 +39,8 @@ if my_log_in.lower() == "N": #create an email and password to be able to log in
     login = a.sign_in_with_email_and_password(email ,  password)
     user_idToken = a.get_account_info(login["idToken"])
 else:# this is if you already have an email and password set up.
-    email = input("Enter your email: ")
-    password = input("Enter your Password: ")
+    email = "trent-black@hotmail.com"
+    password = "trentblack"
 
     login = a.sign_in_with_email_and_password(email ,  password)
     user_idToken = a.get_account_info(login["idToken"])
@@ -54,7 +54,7 @@ while logged_in: #while the user is logged in
     option = input(f"\nWhat Would you like to do type [1-5]\n1. Upload/Remove to Fire Data Base\n2. write to Real Time DataBase\n3. Upload To Storage \n4. View User idToken\n5. query database\n6. quit\nEnter Here: ")
 
     if option == "1": # this is so you can add to an existing collection
-        option_1 = input("To update type - 1 to create type - 2 to remove document type - 3? Add yourself Table type - 4: ")
+        option_1 = input("To update type - 1 \nto create type - 2  \nto remove document type - 3?  \nAdd yourself to  people Table type - 4\n enter: ")
         if option_1 == "1":
             collection_name = input("what is the collection name? : ")
             document = input("what is the document name? : ")
@@ -72,15 +72,14 @@ while logged_in: #while the user is logged in
             collection_name = input("what is the collection name? : ") # gets the collection name from user
             document = input("what is the document name? : ")
             db.collection(collection_name).document(document).delete()
-        else:
+        elif option_1 == "4": #be able to add your own table to the people collection to save. Also shows user token to show when they uploaded and who.
             collection_name = "PEOPLE"
-            first_name = input("WHat is your first name: ")
-            last_name = input("WHat is your Last name: ")
-            Email_name = input("WHat is your Email: ")
-            db.collection(collection_name).document(first_name + " " + last_name).set({"Email" : Email_name})
-            
-
-
+            first_name = input("What is your first name: ")
+            last_name = input("What is your Last name: ")
+            Email_name = input("What is your Email: ")
+            Address = input("What is your address: ")
+            db.collection(collection_name).document(first_name + " " + last_name).set({"Email" : Email_name , "Address" : Address , "User_token" : user_idToken})
+ 
 
 
     elif option == "2": # The user can add info to a real time data base
@@ -99,10 +98,10 @@ while logged_in: #while the user is logged in
         print(user_idToken)    
 
     elif option == "5":
-        collection_name = input("what is the collection name? : ")
-        document = input("what is the document name? : ")
-
-        doc_ref = db.collection(collection_name).document(document)
+        collection_name = "PEOPLE"
+        first_name = input("What is your first name: ")
+        last_name = input("What is your Last name: ")
+        doc_ref =  db.collection(collection_name).document(first_name + " " + last_name)
         doc = doc_ref.get()
         print(doc.to_dict())
 
