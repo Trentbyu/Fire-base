@@ -31,7 +31,7 @@ In this software i used Pyhton. Inside of python i used pyrebase and firebase_ad
 * [firebase.google.com](https://firebase.google.com/docs/firestore)
 
 # Future Work
-( <br> )
+<br> 
 * Imporve Ui for the user to help imporve edit, delete, add, and query data 
 * Allow the user to be able to recive realtime data from firebase. 
 * Be able to share the pyhton file in a way that the user is not the admin but can stil log in and access their data
