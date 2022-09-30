@@ -21,7 +21,7 @@ firebase_config =  { "apiKey": "AIzaSyAPVchmwUHrBTlXohSiNOFi5HVQOYvCO1U",
 firebase = pyrebase.initialize_app(firebase_config)
 a = firebase.auth()
 
-cred = credentials.Certificate("serviceAccountKey.json")
+cred = credentials.Certificate("ServiceAccountKey.json")
 
 
 firebase_admin.initialize_app(cred, {'storageBucket': 'cse-310-aea3a.appspot.com'})
@@ -39,8 +39,8 @@ if my_log_in.lower() == "n": #create an email and password to be able to log in
     login = a.sign_in_with_email_and_password(email ,  password)
     user_idToken = a.get_account_info(login["idToken"])
 else:# this is if you already have an email and password set up.
-    email = "trent-black@hotmail.com"
-    password = "trentblack"
+    email = input("Enter your password: ")
+    password = input("Enter your password: ")
 
     login = a.sign_in_with_email_and_password(email ,  password)
     user_idToken = a.get_account_info(login["idToken"])
