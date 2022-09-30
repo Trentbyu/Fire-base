@@ -21,7 +21,7 @@ firebase_config =  { "apiKey": "AIzaSyAPVchmwUHrBTlXohSiNOFi5HVQOYvCO1U",
 firebase = pyrebase.initialize_app(firebase_config)
 a = firebase.auth()
 
-cred = credentials.Certificate("ServiceAccountKey.json")
+cred = credentials.Certificate("serviceAccountKey.json")
 
 
 firebase_admin.initialize_app(cred, {'storageBucket': 'cse-310-aea3a.appspot.com'})
