@@ -54,7 +54,7 @@ while logged_in:
     option = input(f"\nWhat Would you like to do type [1-5]\n1. Upload/Remove to Fire Data Base\n2. write to Real Time DataBase\n3. Upload To Storage \n4. View User idToken\n5. query database\n6. quit\nEnter Here: ")
 
     if option == "1": # this is so you can add to an existing collection
-        option_1 = input("To update type[1] to create type[2] to remove document type[3]? : ")
+        option_1 = input("To update type - 1 to create type - 2 to remove document type - 3? Add yourself Table type - 4: ")
         if option_1 == "1":
             collection_name = input("what is the collection name? : ")
             document = input("what is the document name? : ")
@@ -68,10 +68,18 @@ while logged_in:
             key = input("what is the key name? : ")
             value = input("what is the  value? : ")
             db.collection(collection_name).document(document).set({key : value})
-        else:
+        elif option_1 == "3": 
             collection_name = input("what is the collection name? : ")
             document = input("what is the document name? : ")
             db.collection(collection_name).document(document).delete()
+        else:
+            collection_name = "PEOPLE"
+            first_name = input("WHat is your first name: ")
+            last_name = input("WHat is your Last name: ")
+            Email_name = input("WHat is your Email: ")
+            db.collection(collection_name).document(first_name + " " + last_name).set({"Email" : Email_name})
+            
+
 
 
 
