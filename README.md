@@ -3,7 +3,8 @@
 {Important!  Do not say in this section that this is college assignment.  Talk about what you are trying to accomplish as a software engineer to further your learning.}
 
 {Provide a description the software that you wrote and how it integrates with a Cloud Database.  Describe how to use your program.}
-
+This program allows a user to create their own account using their email and password. The user can then go and save infomation to the data base 
+The data base accepts user information tables which allow the user to store their data about their first and last name as well as their address. The user is able to create their own collections of data and store what they want to. The user can store files on the firebase storage. The user can also uplaod to the realtime database as well. 
 {Describe your purpose for writing this software.}
 
 {Provide a link to your YouTube demonstration.  It should be a 4-5 minute demo of the software running, a walkthrough of the code, and a view of the cloud database.}
