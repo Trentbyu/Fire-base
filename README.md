@@ -16,7 +16,7 @@ I created this softwarwe to better understand firebase. By learning firebase i h
 
 I created a firebase database.Firebase is a set of hosting services for any type of application. It offers NoSQL and real-time hosting of databases, content, social authentication, and notifications, or services, such as a real-time communication server <br> <br> 
 <br> 
-{Describe the structure of the database that you created.}
+
 created three diffrent cloud structures Real time data base, firestore data base, and a cloud storage data base.
 # Development Environment
 
