@@ -38,19 +38,21 @@ if my_log_in.lower() == "n": #create an email and password to be able to log in
     login = a.sign_in_with_email_and_password(email ,  password) # this created a token which is unique to the user 
     user_idToken = a.get_account_info(login["idToken"])
 else:# this is if you already have an email and password set up.
-    email = "trentblack48@gmail.com"  #input("Enter your Email: ")
-    password = "123456" #input("Enter your password: ")
+    email = input("Enter your Email: ")
+    password = input("Enter your password: ")
     login = a.sign_in_with_email_and_password(email ,  password)
     user_idToken = a.get_account_info(login["idToken"])
 
-print(str(user_idToken).split(","))
+User = str(user_idToken).split(",")
+User = User[2].split(":")
+User = User[1].strip("\'")
 
 
-logged_in = False
+logged_in = True
 
 while logged_in: #while the user is logged in 
 
-    option = input(f"\nWhat Would you like to do type [1-5]\n1. Upload/Remove to Fire Data Base\n2.Real Time DataBase\n3. Upload To Storage \n4. View User idToken\n5. query database\n6. quit\nEnter Here: ")
+    option = input(f"\nWhat Would you like to do type [1-5]\n1. Upload/Remove to Fire Data Base\n2. Real Time DataBase\n3. Upload To Storage \n4. View User idToken\n5. query database\n6. quit\nEnter Here: ")
 
     if option == "1": # this is so you can add to an existing collection
         option_1 = input("To update type - 1 \nto create type - 2  \nto remove document type - 3?  \nAdd yourself to  people Table type - 4\n enter: ")
@@ -75,16 +77,16 @@ while logged_in: #while the user is logged in
             collection_name = "PEOPLE"
             first_name = input("What is your first name: ")
             last_name = input("What is your Last name: ")
-            Email_name = input("What is your Email: ")
+    
             Address = input("What is your address: ")
-            db.collection(collection_name).document(first_name + " " + last_name).set({"Email" : Email_name , "Address" : Address , "User_token" : user_idToken})
+            db.collection(collection_name).document(first_name + " " + last_name).set({"Email" :User , "Address" : Address , "User_token" : user_idToken})
 
     elif option == "2": # The user can add info to a real time data base
         option_2 = input("Do you want to write a message - type 1 or receive - type 2? ")
         if option_2 == "1":
-            key = input("what is your name? : ")
+            Name = input("What is your name: ")
             value = input("what is the message? : ")
-            tb.child("Message").update({key: value}) # this uses pyrebase for the real time data base.
+            tb.child("Message").update({ Name: value}) # this uses pyrebase for the real time data base.
         if option_2 == "2":
             message = tb.child("Message").get()
             print(message.val())
