@@ -31,24 +31,26 @@ tb = firebase.database()# only used for real time data base
 my_log_in = input("Do you have a sign in? Y/N?") # gives the user a chance to create a log in or sign in 
 
 if my_log_in.lower() == "n": #create an email and password to be able to log in 
-    email = input("Enter your email: ")
+    email = input("Enter your Email: ")
     password = input("Enter your Password: ")
     user = auth.create_user(email = email,password =  password)#creates a user using firebase_admin
     print("user_created")
     login = a.sign_in_with_email_and_password(email ,  password) # this created a token which is unique to the user 
     user_idToken = a.get_account_info(login["idToken"])
 else:# this is if you already have an email and password set up.
-    email = input("Enter your password: ")
-    password = input("Enter your password: ")
+    email = "trentblack48@gmail.com"  #input("Enter your Email: ")
+    password = "123456" #input("Enter your password: ")
     login = a.sign_in_with_email_and_password(email ,  password)
     user_idToken = a.get_account_info(login["idToken"])
 
+print(str(user_idToken).split(","))
 
-logged_in = True
+
+logged_in = False
 
 while logged_in: #while the user is logged in 
 
-    option = input(f"\nWhat Would you like to do type [1-5]\n1. Upload/Remove to Fire Data Base\n2. write to Real Time DataBase\n3. Upload To Storage \n4. View User idToken\n5. query database\n6. quit\nEnter Here: ")
+    option = input(f"\nWhat Would you like to do type [1-5]\n1. Upload/Remove to Fire Data Base\n2.Real Time DataBase\n3. Upload To Storage \n4. View User idToken\n5. query database\n6. quit\nEnter Here: ")
 
     if option == "1": # this is so you can add to an existing collection
         option_1 = input("To update type - 1 \nto create type - 2  \nto remove document type - 3?  \nAdd yourself to  people Table type - 4\n enter: ")
@@ -78,10 +80,14 @@ while logged_in: #while the user is logged in
             db.collection(collection_name).document(first_name + " " + last_name).set({"Email" : Email_name , "Address" : Address , "User_token" : user_idToken})
 
     elif option == "2": # The user can add info to a real time data base
-        name = input("what is the child name? : ")
-        key = input("what is the key name? : ")
-        value = input("what is the  value? : ")
-        tb.child(name).set({key: value}) # this uses pyrebase for the real time data base.
+        option_2 = input("Do you want to write a message - type 1 or receive - type 2? ")
+        if option_2 == "1":
+            key = input("what is your name? : ")
+            value = input("what is the message? : ")
+            tb.child("Message").update({key: value}) # this uses pyrebase for the real time data base.
+        if option_2 == "2":
+            message = tb.child("Message").get()
+            print(message.val())
 
     elif option == "3": # you are able to upload files to storage 
         fileName = input("insert your filename here: ")
