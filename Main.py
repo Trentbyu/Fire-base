@@ -1,14 +1,14 @@
 
 import firebase_admin
-from firebase_admin import credentials # verfiys that this computer can access the database as an admin 
-from firebase_admin import firestore # create collections and documnets 
-from firebase_admin import auth # auth allows to  check with the database if user exisits 
+from firebase_admin import credentials # verifies that this computer can access the database as an admin 
+from firebase_admin import firestore # create collections and documents 
+from firebase_admin import auth # auth allows to  check with the database if user exists 
 from firebase_admin import  storage # allows storage 
 
 import pyrebase# this is for real time data base 
 
 
-# this is the confige for pyrebase module. This allows the user to interact with the real time data base
+# this is the config for pyrebase module. This allows the user to interact with the real time data base
 firebase_config =  { "apiKey": "AIzaSyAPVchmwUHrBTlXohSiNOFi5HVQOYvCO1U",
   "authDomain": "cse-310-aea3a.firebaseapp.com",
   "databaseURL": "https://cse-310-aea3a-default-rtdb.firebaseio.com",
@@ -23,7 +23,7 @@ a = firebase.auth()
 
 cred = credentials.Certificate("serviceAccountKey.json") #This is the key that allows python to access firebase as an admin 
 
-firebase_admin.initialize_app(cred, {'storageBucket': 'cse-310-aea3a.appspot.com'})# Allows the user to store infomation using stoarge bucket
+firebase_admin.initialize_app(cred, {'storageBucket': 'cse-310-aea3a.appspot.com'})# Allows the user to store information using storage bucket
 
 db = firestore.client() # everything else is used with db / firebase_admin
 tb = firebase.database()# only used for real time data base
