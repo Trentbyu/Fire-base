@@ -6,7 +6,8 @@ from firebase_admin import auth # auth allows to  check with the database if use
 from firebase_admin import  storage # allows storage 
 
 
-from firebase_confige import firebase_config
+from firebase_config import firebase_config #firebase config for realtime data base
+#this config is for pyerbase 
 
 
 import pyrebase# this is for real time data base 

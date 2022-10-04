@@ -1,3 +1,4 @@
 
 *.json
 firebase_confige.py
+firebase_config.py
