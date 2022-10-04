@@ -5,17 +5,15 @@ from firebase_admin import firestore # create collections and documents
 from firebase_admin import auth # auth allows to  check with the database if user exists 
 from firebase_admin import  storage # allows storage 
 
+
+from firebase_confige import firebase_config
+
+
 import pyrebase# this is for real time data base 
 
 
 # this is the config for pyrebase module. This allows the user to interact with the real time data base
-firebase_config =  { "apiKey": "AIzaSyAPVchmwUHrBTlXohSiNOFi5HVQOYvCO1U",
-  "authDomain": "cse-310-aea3a.firebaseapp.com",
-  "databaseURL": "https://cse-310-aea3a-default-rtdb.firebaseio.com",
-  "projectId": "cse-310-aea3a",
-  "storageBucket": "cse-310-aea3a.appspot.com",
-  "messagingSenderId": "377868974496",
-  "appId": "1:377868974496:web:be9e762b3c4be1c39f0cc5"}
+
 
 
 firebase = pyrebase.initialize_app(firebase_config)
